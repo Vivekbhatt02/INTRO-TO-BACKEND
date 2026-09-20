@@ -26,6 +26,10 @@ Run the dev server:
 npm run dev
 ```
 
+## Key Points to Remember
+
+Use bcrypt to hash passwords before storing them in the database. Hashing is one-way, so even if the database leaks, the original passwords aren't recoverable, only verifiable via comparison.
+
 ## API Endpoints
 | Method | Endpoint                    | Description         |
 |--------|------------------------------|----------------------|
@@ -33,6 +37,26 @@ npm run dev
 | POST   | `/api/v1/users/login`        | Log in a user        |
 | POST   | `/api/v1/users/logout`       | Log out a user       |
 
-## Key Points to Remember
+## HTTP Methods
 
-1. Use bcrypt to hash passwords before storing them in the database. Hashing is one-way, so even if the database leaks, the original passwords aren't recoverable, only verifiable via comparison.
+| Method | Meaning | Example |
+|---|---|---|
+| `GET` | Get / read data | Get a user |
+| `POST` | Create new data | Register a user |
+| `PUT` | Replace the entire resource | Replace a user's profile |
+| `PATCH` | Update part of a resource | Update a user's email |
+| `DELETE` | Delete data | Delete a user |
+
+## HTTP Status Codes
+
+| Code | Name | Meaning |
+|---|---|---|
+| `200` | OK | Request was successful |
+| `201` | Created | A new resource was created |
+| `204` | No Content | Request succeeded, but there is no response body |
+| `400` | Bad Request | Invalid request or input |
+| `401` | Unauthorized | Authentication is required |
+| `403` | Forbidden | You are authenticated but not allowed to perform this action |
+| `404` | Not Found | The requested resource does not exist |
+| `409` | Conflict | Data already exists or conflicts with the request |
+| `500` | Internal Server Error | Something went wrong on the server |
